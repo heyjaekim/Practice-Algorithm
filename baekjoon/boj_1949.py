@@ -1,7 +1,7 @@
 # 우수 마을
 import sys
 input = sys.stdin.readline
-
+sys.setrecursionlimit(20000)
 def dfs(current):
     check[current] = True
     dp[current][0] = population[current]
