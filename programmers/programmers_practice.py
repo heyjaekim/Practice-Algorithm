@@ -74,7 +74,8 @@ def solution(rows, columns, queries):
         answer.append(ret)
     return answer
 
-rows, columns, queries = 100, 100, 	[[2,5,6,6]]
+# rows, columns, queries = 100, 100, 	[[2,5,6,6]]
+rows, columns, queries = 6,6,[[2,2,5,4],[3,3,6,6],[5,1,6,3]]
 print(solution(rows, columns, queries))
 
 
