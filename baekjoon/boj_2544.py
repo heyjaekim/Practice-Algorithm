@@ -1,7 +1,7 @@
 # 사회망 서비스(sns)
 
 import sys
-sys.setrecursionlimit(10**9)
+sys.setrecursionlimit(10**8)
 input = sys.stdin.readline
 
 N = int(input())
