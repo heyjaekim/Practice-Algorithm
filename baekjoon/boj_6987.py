@@ -1,3 +1,4 @@
+# 월드컵
 
 def possible(n):
 
@@ -24,9 +25,6 @@ def possible(n):
             team_list[team_1][i] += 1
             team_list[team_2][2-i] += 1
         return False
-
-
-
 
 ans = []
 match_seq = []
