@@ -16,11 +16,11 @@ def merge(i, j, di, dj):
         x = q.popleft()
         if not board[i][j]:
             board[i][j] = x
-        
+
         elif board[i][j] == x:
             board[i][j] = x * 2
             i, j = i + di, j + dj
-
+        
         else:
             i, j = i + di, j + dj
             board[i][j] = x
@@ -35,7 +35,7 @@ def move(k):
         for j in range(N):
             for i in range(N-1, -1, -1):
                 get(i, j)
-            merge(0, j, -1, 0)
+            merge(N-1, j, -1, 0)
     if k == 2:
         for i in range(N):
             for j in range(N):
