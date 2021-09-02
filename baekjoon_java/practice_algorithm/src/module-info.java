@@ -1,2 +1,0 @@
-module practice_algorithm {
-}
