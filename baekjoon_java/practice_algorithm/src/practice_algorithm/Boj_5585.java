@@ -2,7 +2,7 @@ package practice_algorithm;
 
 import java.util.Scanner;
 
-public class boj5585 {
+public class Boj_5585 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
