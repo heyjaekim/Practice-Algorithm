@@ -46,11 +46,7 @@ public class Boj_9376 {
 			prisonerOne = bfs(map, prisoners[0], h, w);
 			prisonerTwo = bfs(map, prisoners[1], h, w);
 			sanggeun = bfs(map, new Prisoner(0, 0), h, w);
-			
-//			System.out.println();
-//			printMap(prisonerOne);
-//			printMap(prisonerTwo);
-//			printMap(sanggeun);
+
 			
 			minimumOpenDoor = getMinimumSum(prisonerOne, prisonerTwo, sanggeun, map);
 			System.out.println(minimumOpenDoor);
@@ -58,12 +54,6 @@ public class Boj_9376 {
 		
 	}
 	
-	private static void printMap(int[][] arr) {
-		for (int[] a : arr) {
-			System.out.println(Arrays.toString(a));
-		}
-		System.out.println();
-	}
 	
 	private static int getMinimumSum(int[][] prisonerOne, int[][] prisonerTwo, int[][] sanggeun, char[][] map) {
         int minSum;
