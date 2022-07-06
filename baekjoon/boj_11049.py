@@ -1,18 +1,20 @@
-# 행렬 곱셈 순서
+# 행렬곱셈순서
+#http://yimoyimo.tk/MatrixMultiplication/
 
+from collections import deque
 import sys
+
 input = sys.stdin.readline
 
-N = int(input())
-S = [list(map(int, input().split())) for i in range(N)]
-dp = [[0] * N for i in range(N)]
+n = int(input())
+s = [list(map(int, input().split())) for _ in range(n)]
+dp = [[0] * n for _ in range(n)]
 
-for i in range(1, N):
-    for j in range(N-i):
+for i in range(1, n):
+    for j in range(n-i):
         x = j + i
         dp[j][x] = 2 ** 32
         for k in range(j, x):
-            # 행렬의 곱 연산 수 -> r1 * c1(=r2) * c2 -> 행렬[r1 * c2] 생성
-            dp[j][x] = min(dp[j][x], dp[j][k] + dp[k + 1][x] + S[j][0] * S[k][1] * S[x][1])
+            dp[j][x] = min(dp[j][x], dp[j][k] + dp[k+1][x] + s[j][0] * s[k][1] * s[x][1])
 
-print(dp[0][N-1])
+print(dp[0][n-1])
