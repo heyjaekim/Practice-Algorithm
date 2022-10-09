@@ -8,7 +8,7 @@ def solution(gems):
     start, end = 0, 0
     gems_len, gems_kind = len(gems), len(set(gems))
     gems_dict = defaultdict(int)
-
+    print(gems_dict)
     while True:
         kind = len(gems_dict)
         print(gems_dict)
@@ -32,6 +32,7 @@ def solution(gems):
     for s, e in candidates:
         if length > e - s:
             length = e - s
+            print(e, s)
             answer[0] = s + 1
             answer[1] = e
     return answer
