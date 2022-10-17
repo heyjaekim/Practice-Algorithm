@@ -8,10 +8,10 @@ input = sys.stdin.readline
 
 n = int(input())
 arr = [list(input().rstrip()) for _ in range(n)]
-dx = [-1, 1, 0, 0]
+dx = [-1, 1, 0, 0] #남북동서
 dy = [0, 0, 1, -1]
 
-open_x, open_y = -1, -1
+open_x, open_y = -1,-1
 close_x, close_y = -1, -1
 
 for i in range(n):
@@ -21,10 +21,9 @@ for i in range(n):
                 open_x, open_y = i, j
             else:
                 close_x, close_y = i, j
-
+# direction이 4방향이므로 3d bfs 탐색이 필요함.
 check = [[[-1] * 4 for _ in range(n)] for _ in range(n)]
 q = deque()
-
 
 # 시작 지점에서 시작 방향 설정
 for a in range(4):
@@ -33,13 +32,11 @@ for a in range(4):
 
 while q:
     x, y, dir = q.popleft()
-    # 현재 지점이 닫는 문이면 정답 출력 후 바로 종료
     if x == close_x and y == close_y:
         print(check[x][y][dir])
         break
     nx, ny = x + dx[dir], y + dy[dir]
     if 0 <= nx < n and 0 <= ny < n:
-
         if arr[nx][ny] != '*':
             # 처음 방문하는 곳이거나 이전에 방문했던 점보다 더 적은 횟수로 갈 수 있다면
             # 상태공간 갱신 및 큐 앞부분에 삽입
@@ -55,7 +52,6 @@ while q:
                         if check[nx][ny][n_dir] == -1 or check[nx][ny][n_dir] > check[x][y][dir] + 1:
                             check[nx][ny][n_dir] = check[x][y][dir] + 1
                             q.append((nx, ny, n_dir))
-                        
                 else:
                     for n_dir in range(2):
                         if check[nx][ny][n_dir] == -1 or check[nx][ny][n_dir] > check[x][y][dir] + 1:
