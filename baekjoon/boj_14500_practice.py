@@ -1,5 +1,3 @@
-# 테트로미노
-
 n, m = map(int, input().split())
 board = [list(map(int, input().split())) for _ in range(n)]
 tetris = [
@@ -27,7 +25,6 @@ tetris = [
 def solve():
     answer = 0
     length = len(tetris)
-    visited = [[0] * length for _ in range(length)]
     for x in range(n):
         for y in range(m):
             for i in range(length):
@@ -39,5 +36,5 @@ def solve():
                         result += board[nx][ny]
                 answer = max(answer, result)
     print(answer)
-
+    
 solve()
